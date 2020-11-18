@@ -1,8 +1,0 @@
-Convincing Argument.
-~~~
-I couldn't turn %s from {Empire %s %s} to our cause, but he is leaving his agency.
-
-More to come,
-
-%s of {Planet %s %s}
-

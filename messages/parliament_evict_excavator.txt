@@ -1,3 +1,0 @@
-Excavator Evicted
-~~~
-%s has voted to evict your excavator from {Starmap %s %s %s}.

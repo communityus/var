@@ -1,8 +1,0 @@
-Disabled A Building
-~~~
-We have disabled the %s on {Starmap %s %s %s}.
-
-More to come,
-
-%s
-

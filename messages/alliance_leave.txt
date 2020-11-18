@@ -1,7 +1,0 @@
-Leaving Alliance
-~~~
-I am leaving the alliance.
-
-%s
-
-%s

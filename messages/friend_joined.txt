@@ -1,7 +1,0 @@
-Friend Joined
-~~~
-Your friend %s has just joined the KA Expanse with an empire name of {Empire %s %s}. Thanks for inviting your friends to play.
-
-Warmest Regards,
-
-The KA Expanse Team

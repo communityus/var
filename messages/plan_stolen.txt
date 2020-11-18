@@ -1,7 +1,0 @@
-Plan Stolen
-~~~
-Thieves have stolen %s from {Planet %s %s}.
-
-Regards,
-
-Your Humble Assistant

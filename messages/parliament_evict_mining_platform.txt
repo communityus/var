@@ -1,3 +1,0 @@
-Mining Platform Evicted
-~~~
-%s has voted to evict your mining platform from {Starmap %s %s %s}.

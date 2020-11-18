@@ -1,7 +1,0 @@
-Detonator Report
-~~~
-Our Detonator has destroyed %s excavators on {Starmap %s %s %s}.
-
-Regards,
-
-Your Humble Assistant

@@ -1,5 +1,0 @@
-Building Not Found
-~~~
-This planet is quite confusing. Somehow I got turned around and was unable to find the target building. I'll do better next time.
-
-%s
