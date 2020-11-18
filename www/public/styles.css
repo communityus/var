@@ -1,84 +1,1477 @@
+/*
+yellow: #FFD800
+pink: pink
+*/
+
 html {
-	background: black url('http://localhost/lacuna/field.png');
+	background: black url('assets/star_system/field.png');
+	color:#fff;
 }
 body {
+	font-family:verdana;
 	margin:40px 0;
 	padding:0;
 	text-align:left;
 	min-width: 1050px;
 	/*min-height: 768px;*/
+	overflow: hidden;
 }
+select, input, button, textarea, button {
+	font-family:verdana;
+}
+a, a:link, a:visited {
+	color:#fff;
+}
+
+.clearafter { height:100%; }
+.clearafter:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
 #content {
 	text-align:center;
+	padding-top:15px;
 }
 #nojavascript {
 	text-align:center;
 	color:white;
 }
 #header, #footer  {
-	color: red;
 	text-align:center;
-	height:46px;
+	height:55px;
 	position:fixed;
 	width: 100%;
 	min-width: 1050px;
 	background-color:#52acff;
+	font-family:impact, sans-serif;
 }
 #header {
 	top: 0;
 	z-index:1000;
+	background-image:url("assets/ui/web/bar_top_back.png");
 }
 #footer {
 	bottom: 0;
 	z-index:1000;
-}
-
-#users, #planets {
-	font-size:25px;
-	color:white;
-	text-decoration:none;
+	background-image:url("assets/ui/web/bar_bottom_back.png");
 }
 
 .hidden {
 	display:none;
 }
+.alert {
+	color:pink;
+}
+
+/*
+.panelTabs {
+}
+.panelTabs li {
+	background-color:#d2d2d2;
+	border-right:2px solid #F2F2F2;
+	float:left;
+	height:20px;
+	text-align:center;
+	width:100px;
+	cursor:pointer;
+}
+.panelTabs li.panelTabSelected {
+	background-color:gray;
+}
+.panelTabContainer  {
+	border:1px solid gray;
+	border-top-width:5px;
+}
+*/
+/*
+YUI dialog skin
+*/
+body.yui-skin-sam .yui-panel {
+	border-width:0;
+}
+body.yui-skin-sam .yui-panel .hd {
+	width:250px;
+	background:url("assets/ui/tab.png") no-repeat scroll 0 0 transparent;
+	border-width:0;
+	margin-left:10px;
+	font-size:110%;
+	color:#FFD800;
+	line-height:1.75;
+}
+
+.yui-skin-sam .yui-panel .bd, .yui-skin-sam .yui-panel .ft {
+	background-image:url("assets/ui/bkg.png");
+}
+body.yui-skin-sam .yui-panel .bd {
+	-moz-border-radius:10px 10px 0 0;
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-top-left-radius: 10px;
+	border-radius:10px 10px 0 0;
+	border-width: 2px 2px 0;
+	border-style:solid;
+	border-color:#000;
+}
+body.yui-skin-sam .yui-panel .ft {
+	-moz-border-radius:0 0 10px 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	border-radius:0 0 10px 10px;
+	border-width: 0 2px 2px;
+	border-style:solid;
+	border-color:#000;
+}
+body.yui-skin-sam .nofooter .bd {
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border-width: 2px;
+	border-style:solid;
+	border-color:#000;
+} 
+body.yui-skin-sam .container-close {
+	background:url("assets/ui/close.png") no-repeat scroll 0 0 transparent;
+	cursor:pointer;
+	height:23px;
+	position:absolute;
+	right:1px;
+	top:3px;
+	width:23px;
+}
+
+/*#pulsing_c { 
+	width:99%;
+}*/
+#pulsing .bd {
+	border-width:0px;
+	text-align:center;
+}
+.yui-skin-sam #pulsing .bd, .yui-skin-sam #pulsing.ft {
+	background:transparent;
+}
+
+/*
+dialogs
+*/
+#login label, #createEmpire label, #createSpecies label {
+	display:inline-block;
+}
+#login label {
+	width:130px;
+}
+#login input[type="text"],#login input[type="password"] { width:220px; }
+#login li { margin-bottom:3px; }
+
+li.loginFacebook {
+	margin-top: 5px;
+	text-align: center;
+}
+
+#createEmpire label {
+	width:130px;
+}
+#createEmpire input[type="text"],#createEmpire input[type="password"] { width:220px; }
+#createEmpire li { margin-bottom:3px; }
+
+#createSpecies label {
+	width:140px
+}
+#createSpecies li label {
+	display:inline-block;
+	width:120px;
+	text-align:right;
+	padding-right:5px;
+	vertical-align:top;
+}
+.facebookLogin .empirePassword {
+	display: none;
+}
+
+/*
+menu
+*/
+#userMenu, #planetMenu {
+	width:315px;
+}
+#users, #planets {
+	font-size:16pt;
+	text-decoration:none;
+}
+#users {
+	display:block;
+	height:74px;
+	padding-top:15px;
+}
+#planets {
+	display:block;
+	height:74px;
+	padding-left:20px;
+	padding-top:25px;
+	text-align:left;
+}
+#planets img {
+	float:left;
+	margin-right:10px;
+}
+
+body.yui-skin-sam  #planetsCenter .yuimenu .bd {
+	-moz-border-radius:10px 10px 0 0;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	border-radius:10px 10px 0 0;
+	background-color:#52acff;
+	border:5px solid #52ACFF;
+}
+body.yui-skin-sam #usersCenter .yuimenu .bd {
+	-moz-border-radius: 0 0 10px 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	border-radius: 0 0 10px 10px;
+	background-color:#52acff;
+	border:5px solid #52ACFF;
+}
+
 .menuPlanetThumb {
 	width:35px;
 	height:35px;
 }
 .menuItem {
 	display:inline-block;
-	height:45px; /* 1 less than height of bar */
+	height:54px; /* 1 less than height of bar */
+	color:#fff; /*#ddd;*/
+	min-width:55px;
+	width:60px;
+	position:absolute;
+	padding-top:5px;
+	text-align:left;
+}
+#header .menuItem {
+	text-align:center;
+}
+#header .essentia {
+	text-align:left;
+}
+#header .inbox span {
+	display: block;
+	position: absolute;
+	top: 26px;
+	left: 31px;
+	width: 21px;
+	font-size: 11pt;
+	text-align: center;
+}
+#footer .menuItem {
+	width:100px;
+} 
+#header .essentia{
+	width:110px;
+}
+.food  img, .ore  img, .water  img, .essentia  img, .energy  img, .happiness  img, .waste  img , .plots img {
+	float:left;
+}
+.food img {
+	width:45px;
+	height:45px;
+}
+.ore img {
+	width:39px;
+	height:45px;
+}
+.water img {
+	width:36px;
+	height:45px;
+}
+.essentia img {
+	width:50px;
+	height:45px;
+}
+.energy img {
+	width:21px;
+	height:45px;
+}
+.happiness img {
+	width:38px;
+	height:45px;
+}
+.waste img {
+	width:31px;
+	height:45px;
+}
+.inbox img {
+	width:45px;
+	height:45px;
+}
+.change img {
+	width:40px;
+	height:45px;
+	
+}
+.plots img {
+	width:45px;
+	height:45px;
+	
+}
+.profile img {
+	width:45px;
+	height:45px;
+}
+.destruct img {
+	width:50px;
+	height:45px;
+}
+.tutorial img {
+	width:45px;
+	height:45px;
+}
+.support img {
+	width:45px;
+	height:45px;
+}
+.stats img {
+	width:45px;
+	height:45px;
+}
+.about img {
+	width:67px;
+	height:45px;
+}
+.logout img {
+	width:46px;
+	height:45px;
+}
+
+#footer .menuItem  .stored {
+	float:left;
+	font-size:150%;
+	margin-left:2px;
+	margin-top:2px;
+	width:53px;
+	overflow:hidden;
+	/*font-size:25px;
+	margin-left:5px;
+	margin-top:8px;*/
+}
+.menuItem .perHr {
+	float:left;
+	font-size:110%;
+	margin-left:2px;
+	margin-top:2px;
+	width:53px;
+	overflow:hidden;
+}
+#header .menuItem , #footer .plots .stored{
+	font-size:200%;
+}
+
+
+/*
+SHINEY
+*/
+
+#headerShine,#footerShine {
+	height:55px;
+	left:0;
+	position:absolute;
+	width:100%;
+	z-index:1001;
+}
+#headerShine {
+	background-image:url("assets/ui/web/t.png");
+	top:0;
+}
+#footerShine {
+	background-image:url("assets/ui/web/t.png");
+	bottom:0;
+}
+
+#planetsCenter, #usersCenter, #userCenterShine, #planetsCenterShine, #userClick, #planetsClick {
+	height:74px;
+	left:50%;
+	margin-left:-167px;
+	position:absolute;
+	text-align:center;
+	width:334px;
+}
+#usersCenter {
+	background-image:url("assets/ui/web/selector_top.png");
+	top:0;
+	z-index:1003;
+}
+#planetsCenter {
+	background-image:url("assets/ui/web/selector_bottom.png");
+	bottom:0;
+	z-index:1003;
+}
+#userCenterShine {
+	/*background-image:url("assets/ui/web/selector_top_shine.png");*/
+	top:0;
+	z-index:1004;
+}
+#planetsCenterShine {
+	/*background-image:url("assets/ui/web/selector_bottom_shine.png");*/
+	bottom:0;
+	z-index:1004;
+}
+#userClick {
+	top:0;
+	z-index:1005;
+	/*cursor:pointer;*/
+}
+#planetsClick {
+	bottom:0;
+	z-index:1005;
+	cursor:pointer;
+}
+#usersArrow {
+	/*width: 100%; 
+	height: 100%; 
+	background: url("assets/ui/down.png") no-repeat scroll center 55px transparent;
+	position:absolute;
+	top:0;
+	left:0;*/
+}
+#planetsArrow {
+	width: 100%; 
+	height: 100%; 
+	background: url("assets/ui/up.png") no-repeat scroll center 10px transparent;
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+/* header menu */
+.change { left:10px; }
+.inbox { left:70px; }
+.profile { left:130px; }
+.essentia { left:190px; line-height:45px; }
+.destruct { right:310px; }
+.tutorial { right:250px; }
+.support { right:190px; }
+.stats { right:130px; }
+.about { right:70px; }
+.logout { right:10px; }
+/* footer menu */
+.food { left:10px; }
+.ore { left:110px; }
+.water { left:210px; }
+.energy { left:310px; }
+.waste { right:210px; }
+#footer .happiness { right:110px; }
+.plots  { right:10px; line-height:45px; }
+
+#header .click, #footer .click { z-index:1003; cursor:pointer; }
+
+
+
+/*
+about
+*/
+#aboutCredits {
+	padding-left:20px
+}
+#aboutCredits ul {
+	padding-left:20px
+}
+#aboutCredits li {
+	list-style: none inside;
+}
+#aboutCredits ul li {
+	list-style: disc inside;
+}
+
+/*
+* Messaging
+*/
+#messagingTabs #messagingCreate {
+	background-color:#52ACFF;
+}
+.message {
+	border:1px solid #B2B2B2;
+	cursor:pointer;
+	margin:3px 3px 0;
+	padding:2px 2px 0;
+	position:relative;
+}
+.message .messageSelect {
+	position:absolute;
+	right:1px;
+}
+.message .messageExcerpt {
+	font-size:90%;
+}
+.unread .messageDate, .unread .messageFrom, .unread .messageSubject {
+	font-weight:bold;
+}
+
+#messagingTabs .yui-content {
+	padding:0;
+}
+
+#messagingCreator {
+	border-top-color:#52ACFF;
+}
+#messagingCreator div.messagingCreatorC {
+	background-color:#D2D2D2;
+}
+#messagingCreateToTbl {
+	background-color:#fff;
+}
+#messagingCreateToTbl, #messagingCreateSubject {
+	width:450px;
+}
+#messagingCreateTo {
+	width:100px;
+}
+#messagingCreateBody {
+	height: 260px;
+}
+#messagingCreateText {
+	width:100%;
+	height:100%;
+	border:0;
+}
+#messagingCreateResponse {
+	color:red;
+}
+#messagingArchiver {
+	background-color:#52ACFF;
+}
+#messagingPaginator {
+	background-color:white;
+	margin:0px;
+	border:1px solid #52acff;
+}
+#messagingDisplay {
+	padding-top:5px;
+	margin-left:1%;
+	overflow: auto;
+	height:384px;
+}
+#messagingDisplay label , #messagingCreator label{
+	background-color:#D2D2D2;
+	display:inline-block;
+	font-weight:bold;
+	width:75px;
+	color:#000;
+}
+#messagingDisplay div, #messagingCreator div.messagingCreatorC {
+	border-width:1px 1px 0;
+	border-style:solid;
+	border-color:#D2D2D2;
+}
+#messagingDisplay span {
+	padding-left:2px;
+}
+#messagingDisplay #messagingBody {
+	border:1px solid gray;
+	padding:2px 5px;
+}
+
+#attachmentTable th {
+	font-weight:bold;
+	border:1px solid #52ACFF;
+	padding:1px 2px;
+}
+#attachmentTable td {
+	border:1px solid #52ACFF;
+	padding:1px 2px;
+}
+
+/*
+* Species creator
+*/
+.speciesSlider_bg {
+	display:inline-block;
+	position: relative;
+	background: url(assets/ui/slider-bg-fader.gif) 0 5px no-repeat;
+	height: 28px;
+	width: 210px;
+}
+.thumbDisplay {
+	left:0.275em;
+	position:absolute;
+	top:0.25em;
 	color:black;
-	min-width:100px;
+}
+
+#speciesHO div {
+	position: absolute;
+	cursor: default;
+	top: 4px;
+}
+#speciesHO_highlight { 
+	position: absolute; 
+	background: green; 
+	_font-size: 5px; /* prevent IE6 expanding the box height to font-size */ 
+	top: 10px; 
+	left: 12px; 
+	height: 13px; 
+	width: 188px; 
+} 
+#speciesConst_thumb,
+#speciesDecep_thumb,
+#speciesResearch_thumb,
+#speciesManagement_thumb,
+#speciesFarming_thumb,
+#speciesMining_thumb,
+#speciesScience_thumb,
+#speciesEnviro_thumb,
+#speciesPolitical_thumb,
+#speciesTrade_thumb,
+#speciesGrowth_thumb  {
+	position: absolute;
+	cursor: default;
+	top: 4px;
+}
+
+.speciesPointTotal {
+	padding: 10px 0pt; 
+	font-size: 150%;
+}
+.speciesPointsValid { color:green; }
+.speciesPointsInvalid { color:red; }
+
+
+/*
+* Star Map
+*/
+#starMap, #planetMap {
+	margin: 0 auto;
+	position:relative;
+	/*height:700px;
+	width:700px;*/
+	border:0 none;
+	clear:both;
+	cursor: url(assets/ui/web/openhand.cur), default;
+}
+/*#planetMap {
+	background: brown url('assets/planet_side/ground.png');
+}*/
+.planetMapTileCounter {
+	z-index: 2;
+	text-align: right;
+	font-size: 140%;
+	font-family: impact, san-serif;
+	position: absolute;
+	left:0;
+	top:0;
+}
+.planetMapEfficiencyBarContainer {
+	z-index: 2;
+	text-align: center;
+	font-size: 100%;
+	font-family: impact, san-serif;
+	line-height:15px;
+	height:15px;
+	position: absolute;
+	left:0;
+	bottom:5px;
+	border:1px solid #999;
+	background-color:#444;
+}
+.planetMapEfficiencyBar {
+	z-index: 2;
+	height:100%;
+}
+.planetMapTileActionContainer {
+	z-index: 3;
+	text-align: left;
+	font-size: 140%;
+	font-family: impact, san-serif;
+	visibility: hidden;
+	position:absolute;
+	left:0;
+	top:0;
+	padding-top:50%;
+}
+.planetMapTileActionLevel, .planetMapTileActionButton {
+	width:58px;
+	height:45px;
+	border:0;
+	cursor:pointer;
+	margin:-22px auto 0;
+	text-align:center;
+}
+.planetMapTileActionLevel {
+	font-size:25pt;
+	font-weight:bold;
+	color:white;
+}
+.planetMapTileActionButton {
+	background: transparent url('assets/ui/l/build.png');
+}
+.mapiator_nav {
+	background: url(assets/ui/zoom.png);
+	position:absolute;
+	z-index:30;
+	width:60px;
+	height:60px;
+	left:40px;
+	top:40px;
+}
+.mapiator_nav_up,
+.mapiator_nav_down,
+.mapiator_nav_left,
+.mapiator_nav_right {
+	position: absolute;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+}
+.mapiator_nav_up {
+	top: 2px;
+}
+.mapiator_nav_up,
+.mapiator_nav_down {
+	left: 21px;
+}
+.mapiator_nav_down {
+	top: 38px;
+}
+.mapiator_nav_left,
+.mapiator_nav_right {
+	top: 20px;
+}
+.mapiator_nav_left {
+	left: 2px;
+}
+.mapiator_nav_right {
+	left: 38px;
+}
+.mapiator_zoom {
+	background: url(assets/ui/zoom.png);
+	background-position: -20px -60px;
+	position:absolute;
+	z-index:30;
+	width:20px;
+	height:255px;
+	left:60px;
+	top:100px;
+}
+.mapiator_zoom_slider {
+	position: absolute;
+	cursor: pointer;
+	top: 50px;
+	width: 20px;
+	height: 150px;
+}
+.mapiator_zoom_slider_thumb {
+	cursor: row-resize;
+}
+.mapiator_zoom_in,
+.mapiator_zoom_out {
+	position: absolute;
+	cursor: pointer;
+	width: 18px;
+	left: 1px;
+	height: 19px;
+}
+.mapiator_zoom_in {
+	top: 26px;
+}
+.mapiator_zoom_out {
+	top: 209px;
+}
+.tileContainer div {
+	color:white;
+}
+.coordTop {
+	position: absolute;
+	top: 0;
+	width: 5px;
+	height: 30px;
+	overflow: visible;
+}
+.coordLeft {
+	position: absolute;
+	left: 0;
+	width: 30px;
+	height: 5px;
+	overflow: visible;
+}
+.coordX {
+	text-align: center;
+	vertical-align: bottom;
+	line-height:25px;
+	background: transparent;
+	color: white;
+	border: 1px solid white;
+	height: 25px;
+	padding-top: 5px;
+	position: absolute;
+	top: 0;
+}
+.coordY {
+	text-align: center;
+	vertical-align: middle;
+	background: transparent;
+	color: white;
+	border: 1px solid white;
+	width: 30px;
+	position: absolute;
+	left: 0;
+}
+
+body.yui-skin-sam .yui-navset .yui-nav,
+body.yui-skin-sam .yui-navset .yui-navset-top .yui-nav {
+	border-color:#52acff;
+}
+body.yui-skin-sam .yui-navset .yui-content,
+body.yui-skin-sam .yui-navset .yui-navset-top .yui-content {
+	border-color:#52acff;
+}
+body.yui-skin-sam .yui-navset .yui-content {
+	background-color:transparent;
+}
+body.yui-skin-sam .yui-navset .yui-nav .selected a, 
+body.yui-skin-sam .yui-navset .yui-nav .selected a em {
+	border-color:#52acff;
+}
+body.yui-skin-sam .yui-navset .yui-nav a, 
+body.yui-skin-sam .yui-navset .yui-navset-top .yui-nav a {
+	background:none repeat scroll 0 0 #D8D8D8;
+}
+body.yui-skin-sam .yui-navset .yui-nav a:focus,
+body.yui-skin-sam .yui-navset .yui-nav a:hover {
+	background:none repeat scroll 0 0 #BFDAFF;
+}
+body.yui-skin-sam .yui-navset .yui-nav .selected a, 
+body.yui-skin-sam .yui-navset .yui-nav .selected a:focus, 
+body.yui-skin-sam .yui-navset .yui-nav .selected a:hover {
+	background:none repeat scroll 0 0 #52acff;
+}
+
+body.yui-skin-sam  .yui-pg-page {
+	background-color:transparent;
+	border:0px;
+}
+
+
+.planet, .star {
+	cursor: pointer;
+	position: relative;
+	display: inline;
+	vertical-align: middle;
+}
+
+
+/*
+planet details
+*/
+#planetDetailsName {
+	font-family:impact;
+	font-size:120%;	
+}
+#planetDetails label {
+	font-weight:bold;
+	display:inline-block;
+	width:100px;
+}
+#planetDetailRename label {
+	width:150px;
+}
+.smallImg {
+	display:inline-block;
+	width:25px; /*30px;*/
+	vertical-align:middle;
+	text-align:center;
+}
+.buildingDetailsNum { 
+	display:inline-block;
+	text-align:right;
+	width:80px;
+}
+#buildingDetailsName, .buildingName {
+	font-weight:bold;
+}
+.buildingName {
+	cursor:pointer;
+	text-decoration:underline;
+}
+#buildingDetailsDesc{
+	border-top:1px solid #52acff;
+	font-size:85%;
+}
+.buildingDesc  {
+	border-bottom:1px solid #52acff;
+	font-size:85%;
+}
+.buildingReason  {
+	font-size:85%;
+}
+/*#buildingBuilderUnavailable .buildingDesc  {
+	border-top:1px solid #52acff;
+}*/
+#builderMenu, #builderListContainer .yui-content {
+	border:1px solid #52acff;
+}
+#builderMenu .builderMenuGroup {
+	display: block;
+	width: 500px;
+	margin: 5px auto 15px;
+	text-align: center;
+}
+#builderMenu .builderMenuGroup li {
+	display: inline-block;
+}
+#builderMenu .builderMenuGroup em,
+#builderMenu .builderMenuGroup a {
+	display: block;
+	width: 200px;
+	height: 25px;
+	vertical-align: middle;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1px;
+}
+
+#builderMenu .builderMenuGroup a {
+	text-decoration: none;
+	background-image: url("assets/ui/button_bkg_200.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+#builderMenu .builderMenuGroup em {
+	font-weight: bold;
+}
+/*#buildingDetailsExtra {
+	padding: 5px 0;
+}
+#buildingDetailsProduction {
+	padding-top:5px;
+}*/
+/*#buildingDetailsExtra, #buildingDetailsProduction {
+	border-top: 2px solid #52acff;
+}*/
+.buildingDetailsExtra label {
+	display:inline-block;
+	width:75px;
+}
+.buildingDetailsExtra .buildingDetailsPC li label{
+	display:inline-block;
+	width:125px;
+}
+.buildingDetailsDockedShips label {
+	display:inline-block;
+	width:185px;
+}
+.pcStored, .pcCapacity, .pcPerHour  {
+	display:inline-block;
+	text-align:right;
+}
+.pcStored { width:60px; }
+.pcCapacity { width:65px; }
+.pcPerHour { width:40px; }
+.pcSlash {
+	display:inline-block;
+	text-align:center;
+	width:15px;
+}
+
+.smallFood {
+	width:22px; /*38px;*/
+	height:22px;
+}
+.smallOre{
+	width:19px; /*21px;*/
+	height:22px;
+}
+.smallWater{
+	width:18px; /*15px;*/
+	height:22px;
+}
+.smallEnergy{
+	width:10px; /*11px;*/
+	height:22px;
+}
+.smallWaste{
+	width:15px; /*16px;*/
+	height:22px;
+}
+.smallHappy{
+	width:19px; /*22px;*/
+	height:22px;
+}
+.smallEssentia{
+	width:24px; /*28px;*/
+	height:22px;
+}
+.smallTime {
+	width:21px;
+	height:22px;
+}
+
+
+.newsFeedContainer {
+	height:200px;
+	overflow-y:auto;
+	font-size:90%;
+	margin:5px 0;
+	padding:1px;
+	border: 1px solid #52acff;
+}
+.newsRssLinksContainer {
+}
+#newsRssLinks li {
+	float:left;
+	margin-right: 10px;
+}
+.newsRssLink a {
+	vertical-align:middle;
+}
+
+/* shared display headers */
+.buildQueueHeader, .probeHeader , .spiesHeader, .shipHeader, .shipQueueHeader, .platformHeader {
+	font-weight:bold;
+	border-bottom:1px solid #52acff;
+}
+.buildQueue li , .probeInfo li , .securityInfo li, .spyInfo li , .shipInfo li, .shipQueue li , .platformInfo li , .archaeologyGlyphInfo li {
+	float:left;
+}
+
+.spyInfo, .platformInfo {
+	border:1px solid #ddd;
+	padding:2px;
+	margin:0 2px 2px 0;
+}
+.spyInfo li , .platformInfo li{
+	font-size:90%;
+}
+.spyInfo li label, .platformInfo li label{
+	font-weight:bold;
+	margin-right:3px;
+}
+
+div.archaeologySlots {
+	float:left;
+	padding:5px;
+}
+ul.archaeologyGlyphInfo {
+	position:relative;
+	width:310px;
+	height:300px;
+	border:1px solid #FFD800;
+	margin:0;
+	padding:0;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+ul.archaeologyGlyphInfo li {
+	margin:1px;
+	cursor:move;
+	zoom:1;
+}
+
+div.archaeologyGlyphContainer {
+	border:1px solid white;
+}
+div.archaeologyGlyphContainer div.archaeologyGlyphHeader {
+	background-color:white;
+	color:black;
+}
+
+.buildQueue .buildQueueName {
+	width:200px;
+}
+.buildQueue .buildQueueLevel {
+	width:50px;
+	text-align:right;
+}
+.buildQueue .buildQueueTime  {
+	width:100px;
+	text-align:right;
+}
+.buildQueue .buildQueueCoords  {
+	width:100px;
+	text-align:right;
+}
+.buildQueueHeader .buildQueueLevel , .buildQueueHeader .buildQueueTime  {
+	text-align:center;
+}
+
+
+.probeInfo .probeStar {
+	width:200px;
+	border:1px solid black;
+	background-color:#52ACFF;
+	margin:2px;
+	position:relative;
+}
+.probeStar .probeAction {
+	cursor:pointer;
+}
+.probeStar .probeDelete {
+	background:url("assets/ui/close.png") no-repeat scroll center center transparent;
+	height:11px;
+	width:11px;
+	position: absolute;
+	right: 0pt;
+	cursor:pointer;
+}
+
+.securityInfo .securityName {
+	width:100px;
+}
+.securityInfo .securityLevel {
+	width:100px;
+}
+.securityInfo .securityNextMisson, .securityInfo .securitySentence {
+	width:150px;
+}
+.securityInfo .securityExecute {
+	width:100px;
+}
+.securityInfo .securityRelease {
+	width:100px;
+}
+
+.spyInfo .spyName {
+	width:100px;
+	font-weight:bold;
+	font-size:100%;
+	cursor:url(assets/ui/web/pen_m.cur), text;
+}
+.spyInfo .spyName input {
+	width:95px;
+	font-size:90%;
+}
+.spyInfo .spyAssignedTo {
+	width:200px;
+}
+.spyInfo .spyAvailableWhen {
+	width:170px;
+}
+.spyInfo .spyAssignment {
+	width:200px;
+}
+.spyInfo .spyAssignment  select {
+	width:190px;
+}
+.spyInfo .spyOffense {
+	width:100px;
+}
+.spyInfo .spyDefense {
+	width:100px;
+}
+.spyInfo .spyLevel {
+	width:100px;
+}
+.spyInfo .spyIntel {
+	width:100px;
+}
+.spyInfo .spyMayhem {
+	width:100px;
+}
+.spyInfo .spyPolitics {
+	width:100px;
+}
+.spyInfo .spyTheft {
+	width:100px;
+}
+.spyInfo .spyBurn {
+	width:60px;
+	float:right;
+}
+
+
+.shipInfo .shipType {
+	width:180px;
+}
+.shipInfo .shipCost {
+	width:310px;
+}
+.shipInfo .shipAttributes {
+	width:100px;
+}
+.shipInfo .shipBuild {
+	width:60px;
+}
+.shipInfo .shipArrives {
+	width:180px;
+}
+.shipInfo .shipFrom {
+	width:140px;
+}
+.shipInfo .shipTo {
+	width:140px;
+}
+.shipInfo .shipTypeImage {
+	width:54px;
+}
+.shipInfo .shipName {
+	width:120px;
+}
+.shipInfo .shipTask{
+	width:100px;
+}
+.shipInfo .shipSpeed {
+	width:75px;
+}
+.shipInfo .shipHold {
+	width:75px;
+}
+.shipInfo .shipAction {
+	width:100px;
+}
+
+.shipQueue .shipQueueType {
+	width:180px;
+}
+.shipQueue .shipQueueEach {
+	width:150px;
+}
+
+.platformInfo .platformLocation {
+	width:250px;
+}
+.platformInfo .platformProduction {
+	width:200px;
+}
+.platformInfo .platformShipping {
+	width:200px;
+}
+.platformInfo .platformOre {
+	width:550px;
+}
+.platformInfo .platformOre  ul li{
+	float:left;
+	margin: 0 4px;
+}
+.platformInfo .platformAbandon {
+	width:100px;
+}
+
+body.yui-skin-sam .yui-tt .bd {
+	background-color:#52acff;
+	border-color:#429cef #328cdf #328cdf;
+}
+
+/*
+PROFILE
+*/
+#profileDetails {
+	margin-bottom:5px;
+}
+#profileDetails label {
+	display:inline-block;
+	width:75px;
+}
+#profileDescription {
+	width: 428px;
+}
+#profileStatus {
+	width: 424px;
+}
+.medalContainer {
+	overflow: hidden;
+	font-size:80%;
+	zoom:1;
+	height:50px;
+	width:50px;
+}
+.medal {
+	margin:3px 3px 0;
+	padding:2px 2px 0;
+	position:relative;
+	float:left;
+}
+.medal .medalPublic {
+	cursor:pointer;
+	position:absolute;
+	right:1px;
+}
+.medal .medalImg {
+	float:left;
 	margin-right:10px;
 }
-.menuItem  img {
-	float:left;
+
+#profileSpecies label {
+	display:inline-block;
+	width:125px;
+	vertical-align:top;
+	font-weight:bold;
 }
-.menuItem  span {
-	float:left;
-	font-size:25px;
-	margin-left:5px;
-	margin-top:8px;
+#profileSpecies span {
+	display:inline-block;
+	width:250px;
 }
-.inbox {
-	cursor:pointer;
+#detailsAccount,
+#detailsPlayer,
+#detailsNotes {
+	padding : 5px;
 }
-.bookmark {
-	cursor:pointer;
+#profileNotes {
+	width: 100%;
+	height: 200px;
 }
-#starmap {
+#detailsAccount label,
+#detailsPlayer label {
+	display: inline-block;
+	width: 350px;
+	text-align: right;
+}
+#detailsAccount label input,
+#detailsPlayer label input {
+	margin-left: 5px;
+	width: 200px
+}
+#profileChangePassword {
+	display: block;
 	margin: 0 auto;
 }
-.gridStar {
-	display:inline-block;
-	width:50px;
-	height:50px;
+#detailsAccount.password-changed #profileChangePassword {
+	display: none;
 }
-.gridStar .main {
-	z-index: 5;
+#detailsAccount .changepassword {
+	display: none;
 }
-.gridStar .alignment {
-	z-index: 10;
+#detailsAccount.password-changed .changepassword {
+	display: block;
+}
+
+/*
+Essentia Dialog
+*/
+.essentiaBoosts li {
+	float:left;
+}
+.essentiaBoosts img {
+	vertical-align:middle;
+}
+.essentiaBoosts .essentiaDetailsImg {
+	width:30px;
+}
+.essentiaBoosts .essentiaDetailsTime {
+	width:200px;
+	text-align:right;
+}
+.essentiaBoosts .essentiaDetailsCost  {
+	width:100px;
+	text-align:right;
+}
+.essentiaBoosts .essentiaDetailsBoost  {
+	width:100px;
+	text-align:right;
+}
+.essentiaHeader .essentiaDetailsTime, .essentiaHeader .essentiaDetailsCost, .essentiaHeader .essentiaDetailsBoost {
+	text-align:center;
+}
+.essentiaHeader {
+	font-weight:bold;
+	border-bottom:1px solid #52acff;
+}
+
+.essentiaPurchase {
+	text-align: center;
+	margin-top: 10px;
+}
+
+ul.statsList label{
+	font-weight:bold;
+	padding-right:5px;
+}
+ul.statsSubList, ul.statsSubList ul {
+	padding-left:40px;
+}
+.statsSubHeader {
+	cursor:pointer;
+	text-decoration:underline;
+}
+#statsTabs .yui-dt {
+	color:black;
+}
+/*#statsEmpireTable, #statsColonyTable, #statsSpyTable {
+	color:black;
+}
+#statsEmpire, #statsColony, #statsSpy{
+	background-color:#ddd;
+}*/
+
+
+/*
+TextboxList
+*/
+.TextboxList { 
+    position:relative; 
+    font-size:inherit; 
+    font-family:inherit; 
+    width:100%;
+    display:-moz-inline-stack; /*mozilla 2.0*/
+    display:inline-block; /*mozilla 3.0, ie 8*/
+    zoom:1; /*force ie layout so we can use the display:inline below*/
+    *display:inline; /*ie hack to make it think this is an inline-block*/
+}
+.TextboxListContainer {
+    border:1px solid #999999;
+    cursor:text;
+    width:100%;
+    display:-moz-inline-stack; /*mozilla 2.0*/
+    display:inline-block; /*mozilla 3.0, ie 8*/
+    zoom:1; /*force ie layout so we can use the display:inline below*/
+    *display:inline; /*ie hack to make it think this is an inline-block*/
+}
+.TextboxListDisabled {
+    background-color:#ddd;
+    cursor:default;
+}
+.TextboxListDisabled .TextboxListBitBoxDelete { cursor:default; }
+
+.TextboxList .TextboxListBit {
+    cursor:default;
+    display:block;
+    float:left;
+    list-style-type:none;
+    line-height:18px;
+    margin:0 5px 0 0;
+    padding:0 0 0 2px;
+	min-width:5px; /* override any other min-width settings */
+}
+.TextboxList .TextboxListBitBox { 
+    background:#52acff none repeat scroll 0 0; 
+    border:1px solid #CAD8F3;
+    position:relative;
+    font-size:85%;
+    padding:0 15px 0 2px;
+}
+.TextboxList .TextboxListBitBoxDelete {
+    background:transparent url(assets/ui/crosssmall.gif) repeat scroll 0 0;
+    display:block;
+    font-size:1px;
+    height:7px;
+    position:absolute;
+    right:4px;
+    top:6px;
+    width:7px;
+}
+.TextboxList .TextboxListContainer ul.TextboxListBits { position:static; vertical-align:top; } /*  width:15em; */
+.TextboxList .TextboxListIndicator img { height:14px; width:14px; }
+.TextboxList .TextboxListIndicatorSingle { position:absolute; top:2px; left:2px; }
+.yui-skin-sam .TextboxList .TextboxListInput { border:0 none; position:static; width:1px; }
+.yui-skin-sam .TextboxList .TextboxListInputSingle { position:static; /*width:10em;*/ }
+
+.yui-skin-sam .TextboxList .TextboxListAutoComplete { width:10em; }
+.yui-skin-sam .TextboxList .TextboxListAutoComplete .yui-ac-content { overflow-y:scroll; height:100px; text-align:left; background-color:#52acff; }
+
+.yui-skin-sam .yui-dt-editor .TextboxList .TextboxListAutoComplete { width:10em; }
+.yui-skin-sam .yui-dt-editor .TextboxList .TextboxListAutoComplete .yui-ac-content { TEXT-ALIGN:left }
+
+.TextboxListIcon {
+    cursor:default;
+    height:15px;
+    width:17px;
+    right:1px;
+    top:1px;
+    #top:2px;
+    position:absolute;
+    background:transparent url(assets/ui/dropdown.gif) repeat scroll 0 0;
+    z-index:2;
+    display:-moz-inline-stack; /*mozilla 2.0*/
+    display:inline-block; /*mozilla 3.0, ie 8*/
+    zoom:1; /*force ie layout so we can use the display:inline below*/
+    *display:inline; /*ie hack to make it think this is an inline-block*/
+}
+.TextboxListColumn {
+    display:-moz-inline-stack; /*mozilla 2.0*/
+    display:inline-block; /*mozilla 3.0, ie 8*/
+    zoom:1; /*force ie layout so we can use the display:inline below*/
+    *display:inline; /*ie hack to make it think this is an inline-block*/
+    overflow:hidden;
 }
