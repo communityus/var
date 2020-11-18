@@ -49,12 +49,12 @@ if (typeof YAHOO.rpc.Service == "undefined" || !YAHOO.rpc.Service) {
 				var envelope = YAHOO.rpc.Envelope[method.envelope || smd.envelope];
 				var callback = {
 					success: function(o) {
-						console.log("RPC SUCCESS: ", o);
+						YAHOO.log(o, "debug", "RPC.SUCCESS");
 						var results = envelope.deserialize(o);
 						opts.success.call(opts.scope || self, results);
 					},
 					failure: function(o) {
-						console.log("RPC FAILURE: ", o);
+						YAHOO.log(o, "debug", "RPC.FAILURE");
 						if(Lang.isFunction(opts.failure) ) {
 							var results;
 							try {
@@ -115,9 +115,9 @@ if (typeof YAHOO.rpc.Service == "undefined" || !YAHOO.rpc.Service) {
 				Lang.augmentObject(params, data, true);
 				*/
 
-				var url = method.target || smd.target;
+				var url = opts.target || method.target || smd.target;
 				var urlRegexp = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/i;
-				if(!url.match(urlRegexp) && url != smd.target) {
+				if(smd.target && !url.match(urlRegexp) && url != smd.target) {
 					url = smd.target+url;
 				}
 
@@ -140,7 +140,7 @@ if (typeof YAHOO.rpc.Service == "undefined" || !YAHOO.rpc.Service) {
 				var serialized = envelope.serialize(smd, method, params);
 				Lang.augmentObject(r, serialized, true);
 
-				YAHOO.rpc.Transport[r.transport].call(self, r ); 
+				return YAHOO.rpc.Transport[r.transport].call(self, r ); 
 			};
 
 			func.name = serviceName;
@@ -201,8 +201,7 @@ if (typeof YAHOO.rpc.Service == "undefined" || !YAHOO.rpc.Service) {
 							this.process(callback);
 						}
 						catch(ex) {
-							if(Lang.isObject(console) && Lang.isFunction(console.log))
-								console.log(ex);
+							YAHOO.log(ex);
 							if( Lang.isFunction(callback.failure) ) {
 								callback.failure.call(callback.scope || this, {error: ex});
 							}
@@ -295,15 +294,31 @@ if (typeof YAHOO.rpc.Service == "undefined" || !YAHOO.rpc.Service) {
 				};   
 			},
 			/**
-			* serialize
+			* deserialize
 			*/
 			deserialize: function(results) {
-				return Lang.JSON.parse(results.responseText);
+				if(results.getResponseHeader && (results.getResponseHeader["Content-Type"] == "application/json-rpc" || results.getResponseHeader["Content-Type"] == "application/json")) {
+					return Lang.JSON.parse(results.responseText);
+				}
+				else {
+					if(results.status == -1) {
+						return {"error":{"message":"The Request has been Aborted because it was taking too long."}};
+					}
+					else if(results.status === 0) {
+						return {"error":{"message":"Communication with the server has been interrupted for an unknown reason."}};
+					}
+					else {
+						return {"error":{"message":"Response Content-Type is not JSON"}};
+					}
+				}
 			}
 		}
 	   
 	};
 
+	//set connects post header to json
+	Util.Connect.setDefaultPostHeader("application/json");
+	Util.Connect.setDefaultPostHeader(true);
 	//assign to global
 	YAHOO.rpc.Service = Service;
 	
