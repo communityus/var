@@ -1,0 +1,8 @@
+Disabled A Building
+~~~
+We have disabled the %s on %s.
+
+More to come,
+
+%s
+

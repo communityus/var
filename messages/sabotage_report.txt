@@ -1,0 +1,8 @@
+Sabotage Report
+~~~
+We just sabotaged a %s on %s.
+
+More to come,
+
+%s
+
